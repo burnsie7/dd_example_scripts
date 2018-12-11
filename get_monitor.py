@@ -2,7 +2,6 @@
 import argparse
 import os
 import sys
-import textwrap
 import json
 from datadog import initialize
 from datadog import api
@@ -25,7 +24,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-a", "--appkey", help="Your Datadog app key", type=str, default=None)
     parser.add_argument(
-        "-m", "--monitorid", help='The dashboard ID', required=True)
+        "-m", "--monitorid", help='The Monitor ID', required=True)
     args = parser.parse_args()
     api_key = args.apikey or os.getenv("DD_API_KEY", None)
     app_key = args.appkey or os.getenv("DD_APP_KEY", None)
@@ -47,7 +46,7 @@ if __name__ == "__main__":
                       -m/--monitorid argument""")
     if errors:
         for error in errors:
-            print textwrap.dedent(error)
+            print(error)
         sys.exit(2)
     else:
         # Initialize the dd client

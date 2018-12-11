@@ -2,7 +2,6 @@
 import argparse
 import os
 import sys
-import textwrap
 import json
 from datadog import initialize
 from datadog import api
@@ -36,7 +35,7 @@ if __name__ == "__main__":
                       environment variable.""")
     if errors:
         for error in errors:
-            print textwrap.dedent(error)
+            print(error)
         sys.exit(2)
     else:
         # Initialize the dd client
